@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:vendor_app_for_grocery/constants.dart';
 import 'package:vendor_app_for_grocery/providers/auth_provider.dart';
 import 'package:vendor_app_for_grocery/screens/home_screen.dart';
+import 'package:vendor_app_for_grocery/screens/registration_screen.dart';
 import 'package:vendor_app_for_grocery/screens/reset_password_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -183,7 +184,21 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                   ],
-                )
+                ),
+                TextButton(
+                    onPressed: () {
+                      Navigator.pushReplacementNamed(context, RegistrationScreen.id);
+                    },
+                    child: RichText(
+                      text: const TextSpan(text: '', children: [
+                        TextSpan(text: "Don't have an account?",style: TextStyle(color: Colors.black)),
+                        TextSpan(
+                          text: " Register",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, color: Colors.deepPurple),
+                        ),
+                      ]),
+                    )),
               ],
             ),
           ),

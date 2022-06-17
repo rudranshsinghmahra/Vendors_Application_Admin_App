@@ -1,7 +1,5 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:vendor_app_for_grocery/screens/login_screen.dart';
-import 'package:vendor_app_for_grocery/screens/registration_screen.dart';
+import 'package:vendor_app_for_grocery/widgets/drawers_menu_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -10,14 +8,10 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: ElevatedButton(onPressed: () {
-          FirebaseAuth.instance.signOut();
-          Navigator.pushReplacementNamed(context, LoginScreen.id);
-        },
-          child: const Text("Logout"),
-        )
-      ),
-    );
+        body: const Center(
+          child: Text("HomeScreen"),
+        ),
+        appBar: AppBar(title: const Text('Drawer Menu')),
+        drawer: const DrawerWidget());
   }
 }

@@ -14,6 +14,7 @@ class AuthProvider extends ChangeNotifier {
   String? shopAddress;
   String? placeName;
   String email = "";
+  String mobileNumber = "";
 
   Future<File?> getImage() async {
     final ImagePicker _picker = ImagePicker();
@@ -67,8 +68,9 @@ class AuthProvider extends ChangeNotifier {
   }
 
   // Email Registration
-  Future<UserCredential?> registerVendor(String email, String password) async {
+  Future<UserCredential?> registerVendor(String email, String password,String mobile) async {
     this.email = email;
+    mobileNumber = mobile;
     notifyListeners();
     UserCredential? userCredential;
     try {
@@ -137,15 +139,16 @@ class AuthProvider extends ChangeNotifier {
       'uid': user?.uid,
       'shopName': shopName,
       'email': email,
+      'mobile': mobileNumber,
       'dialog': dialog,
       'address': '$placeName:$shopAddress',
       'location': GeoPoint(shopLatitude, shopLongitude),
       'shopOpen': true,
       'rating': 0.0,
       'totalRating': 0,
-      'isTopPicked': true,
+      'isTopPicked': false,
       'imageUrl': url,
-      'accVerified': true // only verified vendors can sell their products
+      'accVerified': false // only verified vendors can sell their products
     });
   }
 }

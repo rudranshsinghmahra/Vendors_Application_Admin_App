@@ -14,11 +14,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "147156304764-tehljuhdiihqo5gkf3blb9opg7nmntuh.apps.googleusercontent.com",
+          "client_id": "147156304764-dr5acmbsl9bl6kvghdd1an9lpriq6e1c.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.rudransh.multi_vending_grocery_app",
-            "certificate_hash": "6fe99a1b2dedc91ee52605b936c4f72eb9b5094f"
+            "certificate_hash": "3cb73cdc60845005afc5571af3987854e42cbbe4"
           }
         },
         {
@@ -51,11 +51,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "147156304764-ldlc7tm51mrcfjq9j12lo20aeoom4sp8.apps.googleusercontent.com",
+          "client_id": "147156304764-d58osgkr06m8rqbrcc0legt1ltfns1kj.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.rudransh.vendor_app_for_grocery",
-            "certificate_hash": "6fe99a1b2dedc91ee52605b936c4f72eb9b5094f"
+            "certificate_hash": "3cb73cdc60845005afc5571af3987854e42cbbe4"
           }
         },
         {

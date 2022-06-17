@@ -289,7 +289,8 @@ class _RegisterFormState extends State<RegisterForm> {
                             _authData
                                 .registerVendor(
                                     _emailTextEditingController.text,
-                                    _passwordTextEditingController.text)
+                                    _passwordTextEditingController.text,
+                            _phoneTextEditingController.text)
                                 .then((value) {
                               if (value?.user?.uid != null) {
                                 //Vendor is registered Successfully. Now upload Profile Pic to Firestore.
