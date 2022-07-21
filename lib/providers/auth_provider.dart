@@ -68,7 +68,8 @@ class AuthProvider extends ChangeNotifier {
   }
 
   // Email Registration
-  Future<UserCredential?> registerVendor(String email, String password,String mobile) async {
+  Future<UserCredential?> registerVendor(
+      String email, String password, String mobile) async {
     this.email = email;
     mobileNumber = mobile;
     notifyListeners();

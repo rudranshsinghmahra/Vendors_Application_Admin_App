@@ -48,6 +48,11 @@ dependencies:
   firebase_storage:
   flutter_easyloading:
   intl:
+  chips_choice_null_safety:
+  awesome_dialog:
+  geolocator:
+  flutter_phone_direct_caller:
+  map_launcher:
 
 dev_dependencies:
   flutter_test:
@@ -58,7 +63,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^1.0.0
+  flutter_lints: ^2.0.1
 
 
 # For information on the generic Dart part of this file, see the

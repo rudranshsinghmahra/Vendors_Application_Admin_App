@@ -45,7 +45,8 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                           text: "Forgot Password",
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              color: Colors.deepOrange,fontSize: 18),
+                              color: Colors.deepOrange,
+                              fontSize: 18),
                         ),
                         TextSpan(
                           text:
@@ -91,19 +92,23 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                         Expanded(
                           child: ElevatedButton(
                             onPressed: () {
-                              if(formKey.currentState!.validate()){
+                              if (formKey.currentState!.validate()) {
                                 setState(() {
                                   isLoading = true;
                                 });
                                 _authData.authDataResetPassword(email);
-                                Navigator.pushReplacementNamed(context, LoginScreen.id);
-                                showAlert("If email exists, reset link has been sent successfully");
+                                Navigator.pushReplacementNamed(
+                                    context, LoginScreen.id);
+                                showAlert(
+                                    "If email exists, reset link has been sent successfully");
                                 setState(() {
                                   isLoading = false;
                                 });
                               }
                             },
-                            child: isLoading ? const LinearProgressIndicator() : const Text("Reset Password"),
+                            child: isLoading
+                                ? const LinearProgressIndicator()
+                                : const Text("Reset Password"),
                           ),
                         ),
                       ],

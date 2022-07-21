@@ -16,6 +16,13 @@ class FirebaseService {
   CollectionReference coupons =
       FirebaseFirestore.instance.collection('coupons');
 
+  CollectionReference users = FirebaseFirestore.instance.collection('users');
+
+  CollectionReference deliveryBoys =
+      FirebaseFirestore.instance.collection('deliveryBoys');
+  CollectionReference vendors =
+      FirebaseFirestore.instance.collection('vendors');
+
   Future<void> publishProduct({id}) {
     return products.doc(id).update({
       'published': true,
@@ -43,8 +50,14 @@ class FirebaseService {
     return vendorBanner.doc(id).delete();
   }
 
-  Future<void> saveCoupon(document,title, discountRate, expiry, details, active) {
-    if(document==null){
+  Future<DocumentSnapshot> getCustomerDetails(id) async {
+    DocumentSnapshot documentSnapshot = await users.doc(id).get();
+    return documentSnapshot;
+  }
+
+  Future<void> saveCoupon(
+      document, title, discountRate, expiry, details, active) {
+    if (document == null) {
       return coupons.doc(title).set({
         'title': title,
         'discountRate': discountRate,
@@ -62,5 +75,10 @@ class FirebaseService {
       'active': active,
       'sellerId': user?.uid,
     });
+  }
+
+  Future<DocumentSnapshot> getShopDetails() async {
+    DocumentSnapshot documentSnapshot = await vendors.doc(user?.uid).get();
+    return documentSnapshot;
   }
 }

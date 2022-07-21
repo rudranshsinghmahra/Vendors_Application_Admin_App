@@ -7,6 +7,8 @@ import 'package:vendor_app_for_grocery/providers/products_provider.dart';
 import 'package:vendor_app_for_grocery/screens/add_edit_coupon_screen.dart';
 import 'package:vendor_app_for_grocery/screens/banners_screen.dart';
 import 'package:vendor_app_for_grocery/screens/coupon_screen.dart';
+import 'package:vendor_app_for_grocery/screens/login_screen.dart';
+import 'package:vendor_app_for_grocery/screens/order_screen.dart';
 import 'package:vendor_app_for_grocery/screens/products_screen.dart';
 
 class DrawerWidget extends StatefulWidget {
@@ -34,15 +36,17 @@ class _DrawerWidgetState extends State<DrawerWidget> {
 
     setState(() {
       vendorsData = result;
+      // print("Here is my vendors data");
+      // print(result.data());
     });
 
-    return result;
+    return vendorsData;
   }
 
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<ProductProvider>(context);
-    provider.getShopName(vendorsData != null ? vendorsData['shopName'] : "");
+    // provider.getShopName(vendorsData != null ? vendorsData['shopName'] : "");
     return Drawer(
       child: ListView(
         padding: const EdgeInsets.all(0.0),
@@ -50,11 +54,11 @@ class _DrawerWidgetState extends State<DrawerWidget> {
           UserAccountsDrawerHeader(
             accountName: Text(
               vendorsData != null ? vendorsData['shopName'] : 'ShopName',
-              style: const TextStyle(color: Colors.black),
+              style: const TextStyle(color: Colors.white),
             ),
             accountEmail: Text(
               vendorsData != null ? vendorsData['email'] : 'abc@gmail.com',
-              style: const TextStyle(color: Colors.black),
+              style: const TextStyle(color: Colors.white),
             ),
             currentAccountPicture: CircleAvatar(
               backgroundImage: vendorsData != null
@@ -94,7 +98,9 @@ class _DrawerWidgetState extends State<DrawerWidget> {
           ListTile(
             title: const Text('Orders'),
             leading: const Icon(Icons.list_alt_outlined),
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, OrderScreen.id);
+            },
           ),
           ListTile(
             title: Text('Reports'),
@@ -111,7 +117,11 @@ class _DrawerWidgetState extends State<DrawerWidget> {
           ListTile(
             title: Text('Logout'),
             leading: Icon(Icons.arrow_back),
-            onTap: () {},
+            onTap: () {
+              FirebaseAuth.instance.signOut().then((value) {
+                Navigator.pushReplacementNamed(context, LoginScreen.id);
+              });
+            },
           ),
         ],
       ),

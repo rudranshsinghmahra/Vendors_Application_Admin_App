@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:provider/provider.dart';
 import 'package:vendor_app_for_grocery/providers/auth_provider.dart';
+import 'package:vendor_app_for_grocery/providers/orders_provider.dart';
 import 'package:vendor_app_for_grocery/providers/products_provider.dart';
 import 'package:vendor_app_for_grocery/screens/add_edit_coupon_screen.dart';
 import 'package:vendor_app_for_grocery/screens/add_new_product_screen.dart';
@@ -10,6 +11,7 @@ import 'package:vendor_app_for_grocery/screens/banners_screen.dart';
 import 'package:vendor_app_for_grocery/screens/coupon_screen.dart';
 import 'package:vendor_app_for_grocery/screens/home_screen.dart';
 import 'package:vendor_app_for_grocery/screens/login_screen.dart';
+import 'package:vendor_app_for_grocery/screens/order_screen.dart';
 import 'package:vendor_app_for_grocery/screens/products_screen.dart';
 import 'package:vendor_app_for_grocery/screens/registration_screen.dart';
 import 'package:vendor_app_for_grocery/screens/reset_password_screen.dart';
@@ -26,6 +28,9 @@ Future<void> main() async {
         ),
         ListenableProvider(
           create: (_) => ProductProvider(),
+        ),
+        ListenableProvider(
+          create: (_) => OrderProvider(),
         ),
       ],
       child: const MyApp(),
@@ -52,6 +57,7 @@ class MyApp extends StatelessWidget {
         BannerScreen.id: (context) => const BannerScreen(),
         AddEditCoupon.id: (context) => const AddEditCoupon(),
         CouponScreen.id: (context) => const CouponScreen(),
+        OrderScreen.id: (context) => const OrderScreen(),
       },
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.deepPurple, fontFamily: 'Lato'),
