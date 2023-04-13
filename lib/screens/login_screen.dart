@@ -187,15 +187,19 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 TextButton(
                     onPressed: () {
-                      Navigator.pushReplacementNamed(context, RegistrationScreen.id);
+                      Navigator.pushReplacementNamed(
+                          context, RegistrationScreen.id);
                     },
                     child: RichText(
                       text: const TextSpan(text: '', children: [
-                        TextSpan(text: "Don't have an account?",style: TextStyle(color: Colors.black)),
+                        TextSpan(
+                            text: "Don't have an account?",
+                            style: TextStyle(color: Colors.black)),
                         TextSpan(
                           text: " Register",
                           style: TextStyle(
-                              fontWeight: FontWeight.bold, color: Colors.deepPurple),
+                              fontWeight: FontWeight.bold,
+                              color: Colors.deepPurple),
                         ),
                       ]),
                     )),
